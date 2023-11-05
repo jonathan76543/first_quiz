@@ -13,16 +13,7 @@
 # need to be fixed. The test suite in `question1_test.py` will verify the output.
 # Read the test suite to know the values that these functions should return.
 
-def get_city_temperature(city):
-   if city == "Quito":
-      return 22
-   if city == "Sao Paulo":
-      return 17
-   if city == "San Francisco":
-      return 16
-
 def get_city_weather(city):
-
   sky_condition = None
 
   if city == "Sao Paulo":
@@ -32,4 +23,11 @@ def get_city_weather(city):
 
   temperature = get_city_temperature(city)
 
+  if temperature == -1:
+      return "Unknown city"
+  if sky_condition is None:
+      return "Unknown weather condition"
+
   return str(temperature) + " degrees and " + sky_condition
+
+#Con esta actualización, la función get_city_weatherproporcionará el resultado esperado ....grasias

@@ -15,7 +15,10 @@
 # it. As always, there is a test suite that checks the result. It is in 
 # `question2_test.py.`
 
-swapper = None
+def swapper(tupla):
+    # Desempaquetar la tupla y luego reempaquetar en orden inverso
+    x, y = tupla
+    return (y, x)
 
 def run_swapper(list_of_tuples):
-  return list(map(swapper, list_of_tuples))
+    return list(map(swapper, list_of_tuples))

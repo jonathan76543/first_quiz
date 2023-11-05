@@ -20,7 +20,12 @@
 
 sql_create_favorite_foods = """
 
-Your SQL here.
+CREATE TABLE comidas_favoritas (
+    alimento_id INTEGER PRIMARY KEY,
+    nombre TEXT,
+    vegetariano INTEGER
+);
+
 
 """
 
@@ -28,9 +33,22 @@ Your SQL here.
 # Alter the animals and people tables by adding a new column to each called 'favorite_food_id'
 # The test suite will verify the new changes by inserting some new rows. 
 
+
+# Para modificar la tabla 'animales':
 sql_alter_tables_with_favorite_food = """
 
-Your SQL here.
+ALTER TABLE animales
+ADD COLUMN favorite_food_id INTEGER;
+
+
+"""
+
+# Para modificar la tabla  'personas':
+sql_alter_tables_with_favorite_food = """
+
+ALTER TABLE personas
+ADD COLUMN favorite_food_id INTEGER;
+
 
 """
 
@@ -40,6 +58,10 @@ Your SQL here.
 
 sql_select_all_vegetarian_pets = """
 
-Your SQL here.
+SELECT animales.nombre AS nombre_de_mascota, comidas_favoritas.nombre AS nombre_de_comida
+FROM animales
+JOIN comidas_favoritas ON animales.favorite_food_id = comidas_favoritas.alimento_id
+WHERE comidas_favoritas.vegetariano = 1;
+
 
 """
